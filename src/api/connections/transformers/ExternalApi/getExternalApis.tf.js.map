@@ -1,0 +1,1 @@
+{"version":3,"file":"getExternalApis.tf.js","sourceRoot":"","sources":["getExternalApis.tf.ts"],"names":[],"mappings":"AAMA,MAAM,UAAU,0BAA0B,CAAC,cAAsC;IAC7E,OAAO,cAAc,CAAC,GAAG,CAAC,CAAC,IAAI,EAAE,EAAE;QAC/B,OAAO,EAAC,GAAG,IAAI,EAAE,OAAO,EAAE,IAAI,CAAC,WAAW,EAAE,MAAM,EAAE,IAAI,CAAC,UAAU,EAAC,CAAA;IACxE,CAAC,CAAC,CAAA;AACN,CAAC"}

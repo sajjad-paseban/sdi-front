@@ -1,0 +1,74 @@
+@font-face {
+    font-family: 'IRANSansWeb';
+    src: url('IRANSansWeb.eot');
+    src: url('IRANSansWeb.eot?#iefix') format('embedded-opentype'), url('IRANSansWeb.woff') format('woff'), url('IRANSansWeb.woff2') format('woff2'), url('IRANSansWeb.ttf') format('truetype');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'IranNastaliq';
+    src: url('IranNastaliq.ttf');
+    src: url('IranNastaliq.ttf?#iefix') format('embedded-opentype'), url('IranNastaliq.ttf') format('woff'), url('IranNastaliq.ttf') format('woff2'), url('IranNastaliq.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'SOGAND';
+    src: url('SOGAND.ttf');
+    src: url('SOGAND.ttf?#iefix') format('embedded-opentype'), url('SOGAND.ttf') format('woff'), url('SOGAND.ttf') format('woff2'), url('SOGAND.ttf') format('truetype');
+    font-weight: normal;
+}
+
+
+
+@font-face {
+    font-family: 'IRANSansWeb_Bold';
+    src: url('IRANSansWeb_Bold.eot');
+    src: url('IRANSansWeb_Bold.eot?#iefix') format('embedded-opentype'), url('IRANSansWeb_Bold.woff') format('woff'), url('IRANSansWeb_Bold.woff2') format('woff2'), url('IRANSansWeb_Bold.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'IRANSansWeb_Bold';
+    src: url('IRANSansWeb_Bold.eot');
+    src: url('IRANSansWeb_Bold.eot?#iefix') format('embedded-opentype'), url('IRANSansWeb_Bold.woff') format('woff'), url('IRANSansWeb_Bold.woff2') format('woff2'), url('IRANSansWeb_Bold.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'IRANSansWeb_Light';
+    src: url('IRANSansWeb_Light.eot');
+    src: url('IRANSansWeb_Light.eot?#iefix') format('embedded-opentype'), url('IRANSansWeb_Light.woff') format('woff'), url('IRANSansWeb_Light.woff2') format('woff2'), url('IRANSansWeb_Light.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'IRANSansWeb_UltraLight';
+    src: url('IRANSansWeb_UltraLight.eot');
+    src: url('IRANSansWeb_UltraLight.eot?#iefix') format('embedded-opentype'), url('IRANSansWeb_UltraLight.woff') format('woff'), url('IRANSansWeb_UltraLight.woff2') format('woff2'), url('IRANSansWeb_UltraLight.ttf') format('truetype');
+    font-weight: normal;
+}
+
+html,
+body {
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+    font-family: "IRANSansWeb_UltraLight" !important;
+
+}
+
+.v-application {
+    font-family: "IRANSansWeb_UltraLight" !important;
+}
+
+.v-application .headline, .v-application .title {
+    font-family: "IRANSansWeb_UltraLight" !important;
+
+}
+
+.v-application .title {
+    font-family: "IRANSansWeb_UltraLight" !important;
+}
+
+.p-component {
+    font-family: "IRANSansWeb_UltraLight" !important;
+  }

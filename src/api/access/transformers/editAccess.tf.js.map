@@ -1,0 +1,1 @@
+{"version":3,"file":"editAccess.tf.js","sourceRoot":"","sources":["editAccess.tf.ts"],"names":[],"mappings":"AASA,MAAM,UAAU,qBAAqB,CAAC,cAAgC;IAClE,OAAO;QACH,OAAO,EAAE,cAAc,CAAC,OAAO;KAClC,CAAA;AACL,CAAC;AAGD,MAAM,UAAU,wBAAwB,CAAC,cAAmC;IACxE,OAAO;QACH,GAAG,cAAc;KACpB,CAAA;AACL,CAAC"}

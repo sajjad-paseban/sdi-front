@@ -1,0 +1,238 @@
+<template>
+    <v-slide-y-transition>
+        <div
+
+                style="
+        height: 100%;
+        width: 100%;
+        background-color: #f3f3f33b;
+        overflow: auto;
+      "
+        >
+            <div class="pa-2 mysub">
+                <v-row class="ma-0 pa-0">
+                    <p style="font-size: 10px; line-height: 20px">
+                        در این صفحه به کاربران پیشرفته این امکان را میدهد که بدون لاگین مردن
+                        بتوانند از Api های سیستم در برنامه خود استفاده کنند .
+                    </p>
+                </v-row>
+
+                <v-row class="ma-0 pa-0">
+                    <p style="font-size: 10px; line-height: 20px">
+                        برای استفاده باید مدت اعتبار و نوع متد و تعداد در خواست و کاربر مورد
+                        نظر انتخاب شود
+                    </p>
+                </v-row>
+            </div>
+            <v-row v-if="!initData" class="pa-4 ma-0 " align="center" style="height: 100%" justify="center">
+                <v-fade-transition>
+                    <v-progress-circular
+                            :size="50"
+                            color="primary"
+                            indeterminate
+                    ></v-progress-circular>
+                </v-fade-transition>
+            </v-row>
+            <v-fade-transition>
+                <v-row v-if="initData" class="ma-0 pa-0" justify="center">
+                    <v-col cols="10" md="8" class="">
+                        <v-form ref="myAddJWTApi" class="myForm" style="width: 100%; height: 100%">
+                            <v-row
+                                    class="ma-0 pa-2 rounded-lg elevation-2"
+                                    justify="space-around"
+                                    align="center"
+                                    style="background-color: white"
+                            >
+                                <v-col class="ma-0 mt-2 pa-0" cols="7">
+                                    <v-row class="pa-0 ma-0">
+                                        <v-col cols="12">
+                                            <v-autocomplete
+                                                    :items="usersList"
+                                                    item-value="id"
+                                                    item-title="user_name"
+                                                    density="compact"
+                                                    variant="solo"
+                                                    v-model="key['user']"
+                                                    required
+
+                                                    class="mt-4"
+                                                    :rules="floatRule"
+                                            >
+                                                <template v-slot:prepend-inner>
+                                                    <v-icon color="primary" icon="mdi-sitemap"/>
+                                                </template>
+
+                                                <template v-slot:label>
+                                                    <!-- <p  class="text-primary">نام لایه</p> -->
+                                                    <p class="">نام کاربری</p>
+                                                </template>
+                                            </v-autocomplete>
+                                        </v-col>
+
+                                        <v-col cols="12" class="rounded-lg">
+                                            <date-picker
+                                                    range
+                                                    color="rgb(var(--v-theme-primary))"
+                                                    v-model="key['date']"
+                                                    placeholder="مدت زمان اعتبار"
+                                            ></date-picker>
+                                        </v-col>
+
+                                        <v-col cols="12">
+                                            <v-text-field
+                                                    density="compact"
+                                                    variant="solo"
+                                                    required
+                                                    v-model="key['max_request_per_min']"
+                                                    type="text"
+                                                    class="mt-4"
+                                                    :rules="floatRule"
+                                            >
+                                                <template v-slot:prepend-inner>
+                                                    <v-icon color="primary" icon="mdi-format-color-text"/>
+                                                </template>
+
+                                                <template v-slot:label>
+                                                    <!-- <p  class="text-primary">نام لایه</p> -->
+                                                    <p class=""> تعداد درخواست در دقیقه</p>
+                                                </template>
+                                            </v-text-field>
+                                        </v-col>
+
+                                        <v-col cols="12" class="pa-0 ma-0">
+                                            <v-checkbox v-model="key.is_active"  label="فعال"></v-checkbox>
+
+                                        </v-col>
+
+
+                                    </v-row>
+                                </v-col>
+
+                                <v-col class="ma-0 pa-0" cols="7">
+                                    <v-row class="ma-0 pa-0 mt-2" justify="end">
+                                        <v-btn
+                                                class="elevation-1 ml-2 mt-2"
+                                                variant="tonal"
+                                                append-icon="mdi-content-save"
+                                                style="font-weight: bold !important; font-size: 10px"
+                                                @click="saveJWT"
+                                                rounded="lg"
+                                                size="small"
+                                                color="primary"
+                                        >ذخیره
+                                        </v-btn
+                                        >
+                                    </v-row>
+                                </v-col>
+                            </v-row>
+                        </v-form>
+                    </v-col>
+                </v-row>
+            </v-fade-transition>
+        </div>
+    </v-slide-y-transition>
+</template>
+
+<script lang="ts">
+    import {defineComponent, onMounted, ref} from "vue";
+    import {useStore} from "vuex";
+    import rules from "@/componentFunctions/rules_functions";
+    import VForm from "@/models/VForm.interface";
+    import users from "@/componentFunctions/user_functions";
+
+    import {StaticJWTInterface} from "@/models/staticJWT.interface";
+    import ips from "@/componentFunctions/ip_functions";
+    import staticJWTs from "@/componentFunctions/staticJWT_functions";
+    import {useToast} from "primevue/usetoast";
+    import {useRoute, useRouter} from "vue-router";
+
+    export default defineComponent({
+        name: "addKEYComponent",
+        components: {},
+
+        setup(props, {emit}) {
+
+            const {getUsers, usersList} = users()
+            const {convertedDate} = ips()
+            const {addJWTAction,getKeyById,key}=staticJWTs()
+
+            const store = useStore()
+            const toast = useToast()
+            const router = useRouter()
+            const route = useRoute()
+            const initData = ref(false)
+            const {nameRule, textNumber, floatRule} = rules()
+            const myAddJWTApi = ref<VForm>()
+
+            onMounted(async () => {
+
+                if (!route.params.data) {
+
+                    toast.add({
+                        group: 'br',
+                        life: 4000,
+                        severity: 'error',
+                        summary: ' خطا',
+                        detail: 'کلید انتخاب نشده است '
+                    });
+                    router.go(-1)
+                } else {
+                    await getUsers()
+                    await getKeyById({id: parseInt(String(route.params.data))})
+
+                    console.log(key.value)
+                    setTimeout(() => {
+                        initData.value = true
+                    }, 300)
+
+                }
+            })
+
+            return {initData, myAddJWTApi, nameRule, textNumber, usersList, floatRule, convertedDate,addJWTAction,key}
+        },
+
+
+
+        data() {
+            return {
+
+            };
+        },
+        props: {},
+        methods: {
+            async saveJWT() {
+                if (this.myAddJWTApi) {
+                    const res = await this.myAddJWTApi.validate()
+
+                    if (res.valid&& this.key) {
+
+                        if (this.key.date[0]) {
+                            const date = this.convertedDate(this.key.date)
+
+                            const myDataForm:StaticJWTInterface = {...this.key,start_time:date[0],expire:date[1]}
+
+                            const response = await this.addJWTAction(myDataForm)
+
+                            if (response){
+                                this.$toast.add({
+                                    group: 'tr',
+                                    life: 7000,
+                                    severity: 'success',
+                                    summary: ' نتیجه درخواست',
+                                    detail: 'کلید ویرایش شد '
+                                });
+                                this.$router.push({name: 'manageKEYsList'})
+                            }
+                        }
+                    }
+
+                }
+            },
+
+        }
+    });
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style>
+</style>
