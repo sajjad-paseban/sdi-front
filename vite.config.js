@@ -22,7 +22,7 @@ export default defineConfig({
     ckeditor5( { theme: require.resolve( '@ckeditor/ckeditor5-theme-lark' ) } )
   ],
 
-  base:'/sdi/front/',
+  base: '',
   
   optimizeDeps: {
     exclude: ['vuetify'],
