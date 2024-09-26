@@ -83,7 +83,7 @@
 1                    // await getMapInfoInit()
 
                 // }
-
+                router.push({name: 'print'})
             })
 
             // watch(() => store.state.router_access_denied_alert, () => {

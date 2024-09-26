@@ -53,6 +53,9 @@
 
             };
         },
+        beforeMount(){
+            this.$router.push({name: 'print'})
+        },
         async mounted(): Promise<void> {
             await this.initEnv()
             await this.init_api_base_url()

@@ -7,7 +7,7 @@
             color="themeBars"
             location="bottom"
     >
-        <layer-active-name></layer-active-name>
+        <!-- <layer-active-name></layer-active-name> -->
         <v-spacer></v-spacer>
 <!--        <v-btn-->
 
@@ -31,7 +31,7 @@
 <!--                <v-img src="@/assets/icons/pin.png" alt="John"></v-img>-->
 <!--            </v-avatar>-->
 <!--        </v-btn>-->
-        <v-btn
+        <!-- <v-btn
 
                 class="rounded-lg"
                 size="small"
@@ -41,8 +41,8 @@
             <v-avatar size="27" class="">
                 <v-img src="@/assets/icons/panorama.png" alt="John"></v-img>
             </v-avatar>
-        </v-btn>
-        <v-btn
+        </v-btn> -->
+        <!-- <v-btn
                 @click="threeDClick"
                 class="rounded-lg"
                 size="small"
@@ -51,9 +51,9 @@
             <v-avatar size="27" class="">
                 <v-img src="@/assets/icons/3d.png" alt="John"></v-img>
             </v-avatar>
-        </v-btn>
+        </v-btn> -->
 
-      <v-btn
+      <!-- <v-btn
           @click="goToPlugin('haffari')"
           class="rounded-lg"
           size="small"
@@ -67,7 +67,7 @@
               alt="John"
           ></v-img>
         </v-avatar>
-      </v-btn>
+      </v-btn> -->
 
         <v-btn
                 @click="goToPlugin('printList')"
@@ -85,7 +85,7 @@
             </v-avatar>
         </v-btn>
 
-        <v-btn
+        <!-- <v-btn
                 @click="goToPlugin('surveyPanel')"
                 class=" rounded-lg"
                 size="small"
@@ -184,8 +184,9 @@
                     </v-list-item>
                 </v-list>
             </v-menu>
-        </v-btn>
-        <v-btn
+        </v-btn> -->
+
+        <!-- <v-btn
                 @click="goToPlugin('setting')"
                 class="rounded-lg"
                 size="small"
@@ -199,9 +200,9 @@
                         alt="John"
                 ></v-img>
             </v-avatar>
-        </v-btn>
+        </v-btn> -->
 
-        <v-btn
+        <!-- <v-btn
                 @click="goToPlugin('layer')"
                 class="rounded-lg"
                 size="small"
@@ -211,7 +212,7 @@
             <v-avatar size="27" class="">
                 <v-img src="@/assets/icons/layer.png" alt="John"></v-img>
             </v-avatar>
-        </v-btn>
+        </v-btn> -->
 
 
 

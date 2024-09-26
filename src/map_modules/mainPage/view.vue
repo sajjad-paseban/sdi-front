@@ -1,53 +1,6 @@
 <template>
     <div :style="fullScreen?'width: 100%;height: 100%;overflow-x: hidden;overflow-y: hidden;position: relative':''">
-
-        <Appbar v-if="!fullScreen" app @settingClick="settingMenuClick"></Appbar>
-        <mouse-info :full-screen="fullScreen" v-if="map"></mouse-info>
-        <div v-if="!fullScreen">
-            <v-container
-                    class=" pa-0 ma-0"
-                    :class="fullScreen?'':'myContainerClass'"
-                    fluid
-
-            >
-                <Map :full-screen="fullScreen">
-
-                    <slot :map="map"></slot>
-
-
-                    <router-view v-if="map||fullScreen" :map="map"></router-view>
-
-                </Map>
-            </v-container>
-        </div>
-        <template v-else>
-            <Map :full-screen="fullScreen">
-
-                <slot :map="map"></slot>
-
-
-                <router-view v-if="(map||fullScreen)&&store.getters.getAllMapConfigLoad" :map="map"></router-view>
-
-            </Map>
-        </template>
-
-        <SideBar
-                v-if="map||fullScreen"
-                :page="sidePage"
-                :full-screen="fullScreen"
-                :drawerButton="side"
-                @closeDrawer="side = false"
-        ></SideBar>
-
-
-
-        <ToolMenu :page="page" :full-screen="fullScreen" @toolBtnHandle="toolHandle"/>
-        <Taskbar v-if="!fullScreen" app/>
-        <div v-if="page" style="position: absolute;bottom: 50px;left:8px;z-index: 101;width: 140px;height: 32.5px"
-             class="bg-themeBars rounded-lg elevation-3 pt-2 text-center">
-            <layer-active-name></layer-active-name>
-        </div>
-
+        <router-view></router-view>
     </div>
 </template>
 

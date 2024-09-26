@@ -8,9 +8,9 @@
     location="top"
     class="ma-0 pa-0 bg-themeBars elevation-3"
   >
-    <v-avatar size="15" class="mx-3" @click="startClick" style="cursor: pointer;">
+    <!-- <v-avatar size="15" class="mx-3" @click="startClick" style="cursor: pointer;">
       <v-img class="" src="@/assets/icons/slider.png" alt="John"></v-img>
-    </v-avatar>
+    </v-avatar> -->
 
     <v-spacer></v-spacer>
     <clock></clock>

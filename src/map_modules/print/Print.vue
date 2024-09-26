@@ -1,6 +1,6 @@
 <template>
-    <st :header="'قالب چاپی'" @navClick="navToggle" :full="true">
-        <div class="rounded-lg" dir="rtl" style="height: 100%;background-color: rgba(171,171,171,0.32);">
+    <!-- <st :header="'قالب چاپی'" @navClick="navToggle" :full="true"> -->
+        <div class="print_template" dir="rtl" style="height: 100%;background-color: rgba(171,171,171,0.32);">
             <v-layout style="height: 100%">
                 <v-navigation-drawer
                         class="desk_nav rounded-lg"
@@ -109,7 +109,7 @@
                 </v-main>
             </v-layout>
         </div>
-    </st>
+    <!-- </st> -->
 </template>
 
 <script lang="ts">
@@ -170,5 +170,11 @@ export default defineComponent({
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-
+    .print_template{
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
 </style>

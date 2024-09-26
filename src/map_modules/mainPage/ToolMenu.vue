@@ -1,7 +1,7 @@
 <template>
     <v-list id="toolBtn" class="right_menu" width="100" color="rgba(57,68,87,0)" show
             :style="fullScreen?'bottom:10px!important':''">
-        <v-scale-transition>
+        <!-- <v-scale-transition>
             <v-btn
                     v-if="show"
                     @click="click('map')"
@@ -15,9 +15,9 @@
                     <v-img src="@/assets/icons/baseMap.png" alt="John"></v-img>
                 </v-avatar>
             </v-btn>
-        </v-scale-transition>
+        </v-scale-transition> -->
 
-        <v-scale-transition>
+        <!-- <v-scale-transition>
             <v-btn
                     v-if="show"
                     @click="click('layers')"
@@ -31,7 +31,7 @@
                     <v-img src="@/assets/icons/layer.png" alt="John"></v-img>
                 </v-avatar>
             </v-btn>
-        </v-scale-transition>
+        </v-scale-transition> -->
 
         <!--        <v-scale-transition>-->
         <!--            <v-btn-->
@@ -71,7 +71,7 @@
         <!--            </v-btn>-->
         <!--        </v-scale-transition>-->
 
-        <v-scale-transition>
+        <!-- <v-scale-transition>
             <v-btn
                     active-class="no-active"
                     v-if="show&&(page ||(!page&&!fullScreen))"
@@ -89,9 +89,9 @@
                     </v-avatar>
                 </div>
             </v-btn>
-        </v-scale-transition>
+        </v-scale-transition> -->
 
-        <v-scale-transition>
+        <!-- <v-scale-transition>
             <v-btn
                     active-class="no-active"
                     v-if="measureRouteName&&show&&(page ||(!page&&!fullScreen))"
@@ -109,9 +109,9 @@
                     </v-avatar>
                 </div>
             </v-btn>
-        </v-scale-transition>
+        </v-scale-transition> -->
 
-        <v-scale-transition>
+        <!-- <v-scale-transition>
             <v-btn
                     active-class="no-active"
                     v-if="show&&!fullScreen"
@@ -129,9 +129,9 @@
                     </v-avatar>
                 </div>
             </v-btn>
-        </v-scale-transition>
+        </v-scale-transition> -->
 
-        <v-scale-transition>
+        <!-- <v-scale-transition>
             <v-btn
                     active-class="no-active"
                     v-if="show&&(page ||(!page&&!fullScreen))"
@@ -149,7 +149,7 @@
                     </v-avatar>
                 </div>
             </v-btn>
-        </v-scale-transition>
+        </v-scale-transition> -->
     </v-list>
 </template>
 
